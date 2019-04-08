@@ -18,25 +18,35 @@ for (var i = 3; i < arguments.length; i++) {
 
 
 if (command === "concert-this") {
-    console.log(searchFor);
+    axios
+        .get("https://rest.bandsintown.com/artists/" + searchFor + "/events?app_id=codingbootcamp")
+        .then(function (response) {
+                console.log(
+                    response.data[0].venue.name,
+                    response.data[0].venue.city,
+                    response.data[0].datetime,
+                    );
+            }
+        )
+
 } else if (command === "spotify-this-song") {
 
-// https://www.npmjs.com/package/node-spotify-api
+    // https://www.npmjs.com/package/node-spotify-api
 
-spotify
-  .search({ type: 'track', query: searchFor })
-  .then(function(response) {
-    console.log(
-        // response.tracks.items[0],
-        response.tracks.items[0].artists[0].name, //artist name
-        response.tracks.items[0].name, //song name
-        response.tracks.items[0].external_urls.spotify, //preview link
-        response.tracks.items[0].album.name, //album name
-        );
-  })
-  .catch(function(err) {
-    console.log(err);
-  });
+    spotify
+        .search({ type: 'track', query: searchFor })
+        .then(function (response) {
+            console.log(
+                // response.tracks.items[0],
+                response.tracks.items[0].artists[0].name, //artist name
+                response.tracks.items[0].name, //song name
+                response.tracks.items[0].external_urls.spotify, //preview link
+                response.tracks.items[0].album.name, //album name
+            );
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
 
 
 } else if (command === "movie-this") {
@@ -44,16 +54,17 @@ spotify
         searchFor = "Mr. Nobody";
         console.log(searchFor);
     } else {
-    axios.get("http://www.omdbapi.com/?t=" + searchFor + "&y=&plot=short&apikey=trilogy").then(
-        function(response) {
-            console.log(response.data.Title, response.data.Year, response.data.imdbRating,
-            response.data.Ratings[2].Value,
-            response.data.Country,
-            response.data.Language,
-            response.data.Plot,
-            response.data.Actors);
-        }
-    )}
+        axios.get("http://www.omdbapi.com/?t=" + searchFor + "&y=&plot=short&apikey=trilogy").then(
+            function (response) {
+                console.log(response.data.Title, response.data.Year, response.data.imdbRating,
+                    response.data.Ratings[2].Value,
+                    response.data.Country,
+                    response.data.Language,
+                    response.data.Plot,
+                    response.data.Actors);
+            }
+        )
+    }
 } else if (command === "do-what-it-says") {
     console.log("Do What it says");
 };
