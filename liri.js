@@ -1,6 +1,7 @@
 require("dotenv").config();
 var Spotify = require('node-spotify-api')
 var keys = require("./keys.js");
+var fs = require("fs");
 var spotify = new Spotify(keys.spotify);
 var axios = require("axios");
 var arguments = process.argv;
@@ -21,18 +22,15 @@ if (command === "concert-this") {
     axios
         .get("https://rest.bandsintown.com/artists/" + searchFor + "/events?app_id=codingbootcamp")
         .then(function (response) {
-                console.log(
-                    response.data[0].venue.name,
-                    response.data[0].venue.city,
-                    response.data[0].datetime,
-                    );
-            }
+            console.log(
+                response.data[0].venue.name,
+                response.data[0].venue.city,
+                response.data[0].datetime,
+            );
+        }
         )
 
 } else if (command === "spotify-this-song") {
-
-    // https://www.npmjs.com/package/node-spotify-api
-
     spotify
         .search({ type: 'track', query: searchFor })
         .then(function (response) {
@@ -66,7 +64,38 @@ if (command === "concert-this") {
         )
     }
 } else if (command === "do-what-it-says") {
-    console.log("Do What it says");
+        fs.readFile("random.txt", "utf8", function(error, data) {
+            // console.log(data);
+            var textSplit = data.split(",");
+            // console.log(textSplit);
+            command = textSplit[0];
+            searchTerm = textSplit[1];
+            
+            searchArray = searchTerm.split(" ");
+                for (i = 0; i < searchArray.length; i++) {
+                        searchArray[i] = searchArray[i].replace('"', '');
+                    };
+            searchJoined = searchArray.join("+");
+    
+            console.log(searchJoined);
+
+
+            spotify
+            .search({ type: 'track', query: searchJoined })
+            .then(function (response) {
+                console.log(
+                    // response.tracks.items[0],
+                    response.tracks.items[0].artists[0].name, //artist name
+                    response.tracks.items[0].name, //song name
+                    response.tracks.items[0].external_urls.spotify, //preview link
+                    response.tracks.items[0].album.name, //album name
+                );
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
+
+        })
 };
 
 
