@@ -23,9 +23,7 @@ if (command === "concert-this") {
         .get("https://rest.bandsintown.com/artists/" + searchFor + "/events?app_id=codingbootcamp")
         .then(function (response) {
             console.log(
-                response.data[0].venue.name,
-                response.data[0].venue.city,
-                response.data[0].datetime,
+                response.data[0].venue.name + "\n" + response.data[0].venue.city + "\n" + response.data[0].datetime,
             );
         }
         )
@@ -36,10 +34,7 @@ if (command === "concert-this") {
         .then(function (response) {
             console.log(
                 // response.tracks.items[0],
-                response.tracks.items[0].artists[0].name, //artist name
-                response.tracks.items[0].name, //song name
-                response.tracks.items[0].external_urls.spotify, //preview link
-                response.tracks.items[0].album.name, //album name
+                response.tracks.items[0].artists[0].name + "\n" + response.tracks.items[0].name + "\n" + response.tracks.items[0].external_urls.spotify + "\n" + response.tracks.items[0].album.name
             );
         })
         .catch(function (err) {
@@ -54,20 +49,13 @@ if (command === "concert-this") {
     } else {
         axios.get("http://www.omdbapi.com/?t=" + searchFor + "&y=&plot=short&apikey=trilogy").then(
             function (response) {
-                console.log(response.data.Title, response.data.Year, response.data.imdbRating,
-                    response.data.Ratings[2].Value,
-                    response.data.Country,
-                    response.data.Language,
-                    response.data.Plot,
-                    response.data.Actors);
+                console.log(response.data.Title + "\n" + response.data.Year + "\n" + response.data.imdbRating + "\n" + response.data.Ratings[2].Value + "\n" + response.data.Country + "\n" + response.data.Language + "\n" + response.data.Plot + "\n" + response.data.Actors);
             }
         )
     }
 } else if (command === "do-what-it-says") {
         fs.readFile("random.txt", "utf8", function(error, data) {
-            // console.log(data);
             var textSplit = data.split(",");
-            // console.log(textSplit);
             command = textSplit[0];
             searchTerm = textSplit[1];
             
@@ -76,19 +64,11 @@ if (command === "concert-this") {
                         searchArray[i] = searchArray[i].replace('"', '');
                     };
             searchJoined = searchArray.join("+");
-    
-            console.log(searchJoined);
-
-
             spotify
             .search({ type: 'track', query: searchJoined })
             .then(function (response) {
                 console.log(
-                    // response.tracks.items[0],
-                    response.tracks.items[0].artists[0].name, //artist name
-                    response.tracks.items[0].name, //song name
-                    response.tracks.items[0].external_urls.spotify, //preview link
-                    response.tracks.items[0].album.name, //album name
+                    response.tracks.items[0].artists[0].name + "\n" + response.tracks.items[0].name + "\n" + response.tracks.items[0].external_urls.spotify + "\n" + response.tracks.items[0].album.name
                 );
             })
             .catch(function (err) {
