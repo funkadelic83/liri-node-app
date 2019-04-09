@@ -13,19 +13,19 @@ Then edit the .env file to add your Spotify ID & Secret.
 ### * [Watch a demo of this project] (https://drive.google.com/file/d/1KtmHhgqHD8-rvzD1EKxHdnMwQFIl64OL/view?usp=sharing)
 
 ### To search for a song on Spotify, type:
-node liri spotify-this-song <name of song>
+node liri spotify-this-song (name of song)
 
 example:
 node liri spotify-this-song rock around the clock
 
 ### To search Bands in Town for concerts, type:
-node liri concert-this <name of band>
+node liri concert-this (name of band)
 
 example:
 node liri concert-this george clinton
 
 ### To search OMDB for a movie, type:
-node liri movie-this <name of film>
+node liri movie-this (name of film)
  
 example:
 node liri movie-this forrest gump
