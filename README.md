@@ -31,11 +31,11 @@ example:
 node liri movie-this forrest gump
 
 LIRI requires the following packages, which are listed in the project's package.JSON file:
-Axios 0.18.0 (to search OMDB for movies, or Bands In Town to search for concerts)
-Node-Spotify-Api 1.0.7
-dotenv 7.0.0
-jquery 3.3.1
-moment 2.24.0
+* Axios 0.18.0 (to search OMDB for movies, or Bands In Town to search for concerts)
+* Node-Spotify-Api 1.0.7
+* dotenv 7.0.0
+* jquery 3.3.1
+* moment 2.24.0
 
 This application was created by Mike Damanskis as part of the UCLA Web Development Coding Boot Camp. I can be reached at MikeDamanskis@gmail.com.
 
