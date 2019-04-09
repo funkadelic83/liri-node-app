@@ -10,7 +10,7 @@ You will need your own API key for Spotify, as my API key is not included in thi
 
 Then edit the .env file to add your Spotify ID & Secret.
 
-### * [Watch a demo of this project] (https://drive.google.com/file/d/1KtmHhgqHD8-rvzD1EKxHdnMwQFIl64OL/view?usp=sharing)
+### [Watch a demo of this project] (https://drive.google.com/file/d/1KtmHhgqHD8-rvzD1EKxHdnMwQFIl64OL/view?usp=sharing)
 
 ### To search for a song on Spotify, type:
 node liri spotify-this-song (name of song)
@@ -38,8 +38,3 @@ LIRI requires the following packages, which are listed in the project's package.
 * moment 2.24.0
 
 This application was created by Mike Damanskis as part of the UCLA Web Development Coding Boot Camp. I can be reached at MikeDamanskis@gmail.com.
-
-
-
-
-
