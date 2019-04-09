@@ -4,7 +4,11 @@ LIRI is a language interpretation and recognition interface. It receives a text 
 
 LIRI is a CLI app that uses node to determine the user input. To use LIRI, clone it to your local disk, then open a terminal window and navigate to LIRI's root directory (which will contain liri.js).
 
-You will need your own API key for Spotify, as my API key is not included in this Github repository. You may can get your own API key from Spotify [here] (https://developer.spotify.com/my-applications/#!/login). Then edit the .env file to add your Spotify ID & Secret.
+You will need your own API key for Spotify, as my API key is not included in this Github repository. You may can get your own API key from Spotify.
+
+[Spotify for Developers] (https://developer.spotify.com/my-applications/#!/login).
+
+Then edit the .env file to add your Spotify ID & Secret.
 
 ### [Watch a demo of this project] (https://drive.google.com/file/d/1KtmHhgqHD8-rvzD1EKxHdnMwQFIl64OL/view?usp=sharing)
 
