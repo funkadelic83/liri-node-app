@@ -1,6 +1,6 @@
 # liri-node-app
 
-LIRI is a language interpretation and recognition interface. It receives a text user input to search Spotify for songs, Bands in Town for concerts, or OMDB for movies. It can also read commands from a local text file, "random.txt". 
+LIRI is a language interpretation and recognition interface. It receives a text input from the user to search Spotify for songs, Bands in Town for concerts, or OMDB for movies. It can also read commands from a local text file, "random.txt". 
 
 LIRI is a CLI app that uses node to determine the user input. To use LIRI, clone it to your local disk, then open a terminal window and navigate to LIRI's root directory (which will contain liri.js).
 
@@ -29,6 +29,9 @@ node liri movie-this (name of film)
  
 example:
 node liri movie-this forrest gump
+
+### To perform a search based on the contents of the "random.txt" file:
+node liri do-what-it-says
 
 LIRI requires the following packages, which are listed in the project's package.JSON file:
 * Axios 0.18.0 (to search OMDB for movies, or Bands In Town to search for concerts)
