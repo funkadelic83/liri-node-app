@@ -6,7 +6,7 @@ LIRI is a CLI app that uses node to determine the user input. To use LIRI, clone
 
 You will need your own API key for Spotify, as my API key is not included in this Github repository. You may can get your own API key from Spotify.
 
-* [Spotify for Developers] (https://developer.spotify.com/my-applications/#!/login).
+[Spotify for Developers] (https://developer.spotify.com/my-applications/#!/login)
 
 Then edit the .env file to add your Spotify ID & Secret.
 
